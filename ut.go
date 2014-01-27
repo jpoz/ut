@@ -18,3 +18,16 @@ func Any(s interface{}, f func(interface{}) bool) bool {
 	}
 	return false
 }
+
+func Pluck(s []map[string]interface{}, str string) []interface{} {
+	var returned []interface{}
+
+	for _, mp := range s {
+		o := mp[str]
+		if o != nil {
+			returned = append(returned, o)
+		}
+	}
+
+	return returned
+}

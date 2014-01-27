@@ -44,3 +44,16 @@ func TestAny(test *testing.T) {
 		test.Errorf("Expected Any to return false if the given func returns false")
 	}
 }
+
+func TestPluck(test *testing.T) {
+	maps := []map[string]interface{}{
+		{"a": 1}, {"b", 2}, {"a": 3},
+	}
+
+	r := Pluck(maps, "a")
+
+	if r != []interface{}{1, 2} {
+		test.Errorf("Expected Pluck to return 1,2 it returned %s", r)
+	}
+
+}
