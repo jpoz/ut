@@ -9,3 +9,12 @@ func Contains(s interface{}, o interface{}) bool {
 	}
 	return false
 }
+
+func Any(s interface{}, f func(interface{}) bool) bool {
+	for _, obj := range s.([]interface{}) {
+		if f(obj) {
+			return true
+		}
+	}
+	return false
+}
