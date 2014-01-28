@@ -40,7 +40,7 @@ func Contains(s interface{}, o interface{}) bool {
 //          {"a": 1},
 //          {"b": 2},
 //          {"a": 3},
-//	    }
+//      }
 //      ut.Pluck(objs, "a") // [1,3]
 //
 func Pluck(s []map[string]interface{}, str string) []interface{} {
