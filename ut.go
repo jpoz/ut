@@ -17,19 +17,14 @@ func Any(s interface{}, f func(interface{}) bool) bool {
 	return false
 }
 
-// Contains checks a slice to see if an object exists inside of it
+// Contains checks a slice to see if an object exists inside of it. Note the
+// slice can be of any type
 //
 //      s := []string{"hello","world"}
-//      if ut.Contains(s, "hello") {
-//  			print("yup it's there")
-//      }
+//      ut.Contains(s, "hello") // true
+//      s = []interface{}{"hello","world", 1000}
+//      if ut.Contains(s, 1000) // true
 //
-// Note the slice can be of any type
-//
-//     s := []interface{}{"hello","world", 1000}
-//     if ut.Contains(s, 1000) {
-//  	    print("yup it's there")
-//     }
 func Contains(s interface{}, o interface{}) bool {
 	for _, obj := range s.([]interface{}) {
 		if obj == o {
