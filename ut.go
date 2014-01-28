@@ -1,18 +1,38 @@
 package ut
 
+// Any takes a slice and a func. If the func ever returns true Any will
+// return true
 //
-func Contains(s interface{}, o interface{}) bool {
+//      s := []int{1,2,3,4,5,6,7}
+//      ut.Any(s, func(i interface{}) bool {
+//          return i.(int) > 3
+//      }) // true
+//
+func Any(s interface{}, f func(interface{}) bool) bool {
 	for _, obj := range s.([]interface{}) {
-		if obj == o {
+		if f(obj) {
 			return true
 		}
 	}
 	return false
 }
 
-func Any(s interface{}, f func(interface{}) bool) bool {
+// Contains checks a slice to see if an object exists inside of it
+//
+//      s := []string{"hello","world"}
+//      if ut.Contains(s, "hello") {
+//  			print("yup it's there")
+//      }
+//
+// Note the slice can be of any type
+//
+//     s := []interface{}{"hello","world", 1000}
+//     if ut.Contains(s, 1000) {
+//  	    print("yup it's there")
+//     }
+func Contains(s interface{}, o interface{}) bool {
 	for _, obj := range s.([]interface{}) {
-		if f(obj) {
+		if obj == o {
 			return true
 		}
 	}
