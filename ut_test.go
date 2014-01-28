@@ -47,13 +47,15 @@ func TestAny(test *testing.T) {
 
 func TestPluck(test *testing.T) {
 	maps := []map[string]interface{}{
-		{"a": 1}, {"b", 2}, {"a": 3},
+		{"a": 1},
+		{"b": 2},
+		{"a": 3},
 	}
 
 	r := Pluck(maps, "a")
 
-	if r != []interface{}{1, 2} {
-		test.Errorf("Expected Pluck to return 1,2 it returned %s", r)
+	if !SlicesEqual(r, []interface{}{1, 3}) {
+		test.Errorf("Expected Pluck to return [1,3] it returned %x", r)
 	}
 
 }

@@ -31,3 +31,15 @@ func Pluck(s []map[string]interface{}, str string) []interface{} {
 
 	return returned
 }
+
+func SlicesEqual(a interface{}, b interface{}) bool {
+	if len(a.([]interface{})) != len(b.([]interface{})) {
+		return false
+	}
+	for i, v := range a.([]interface{}) {
+		if v != b.([]interface{})[i] {
+			return false
+		}
+	}
+	return true
+}
