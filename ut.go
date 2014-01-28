@@ -18,7 +18,7 @@ func Any(s interface{}, f func(interface{}) bool) bool {
 }
 
 // Contains checks a slice to see if an object exists inside of it. Note the
-// slice can be of any type
+// slice can be of any type.
 //
 //      s := []string{"hello","world"}
 //      ut.Contains(s, "hello") // true
@@ -34,6 +34,15 @@ func Contains(s interface{}, o interface{}) bool {
 	return false
 }
 
+// Pluck extracts a list of property values from a map
+//
+//      objs := []map[string]interface{}{
+//          {"a": 1},
+//		      {"b": 2},
+//		      {"a": 3},
+//	    }
+//      ut.Pluck(objs, "a") // [1,3]
+//
 func Pluck(s []map[string]interface{}, str string) []interface{} {
 	var returned []interface{}
 
