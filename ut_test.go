@@ -57,16 +57,4 @@ func TestPluck(test *testing.T) {
 	if !SlicesEqual(r, []interface{}{1, 3}) {
 		test.Errorf("Expected Pluck to return [1,3] it returned %x", r)
 	}
-
-	maps = []map[string]string{
-		{"a": "1"},
-		{"b": "2"},
-		{"a": "3"},
-	}
-
-	r = Pluck(maps, "a")
-	if !SlicesEqual(r.([]map[string]interface{}), []interface{}{1, 3}) {
-		test.Errorf("Expected Pluck to return [1,3] it returned %x", r)
-	}
-
 }
